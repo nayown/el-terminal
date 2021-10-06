@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{"/assets/css/main.css" | relative_url}}">
+    <link rel="shortcut icon" type="image/png" href="/favicon.png">
+    <title>{{ page.title }}</title>
+</head>
+<body>
+    <div class="container">
+        <div class="info">
+            {{ page.user }} whoami
+            <br>
+            {{ page.yourname }} 
+            <br><br>
+            {{ page.user }} ls
+
+            <nav class="nav">
+                <ul>
+                    <li id="about">about</li>
+                    <li id="contact">contact</li>
+                    <li id="blog">blog</li>
+                </ul>
+            </nav>
+            
+            <br>
+            <div class="element">
+            {{ page.user }} echo $CODE
+            <ul>
+                <li id="code">code</li>
+            </ul>
+            <br>
+            {{ page.user }}&nbsp<span class="cursor">&#9608</span> 
+        </div>
+    </div>
+
+    <div class="hidden">
+        <div id="about-content">
+            <p>about@me:~$ echo $ABOUT</p>
+            <p class="content-info">jem</p>
+            <br>
+            <p>about@me:~$&nbsp<span class="cursor">&#9608</span></p>
+        </div>
+        <div id="contact-content">
+            <p>contact@me:~$ echo $CONTACT</p>
+            <p class="content-info">jemcv.dev@gmail.com</p>
+            <br>
+            <p>contact@me:~$&nbsp<span class="cursor">&#9608</span></p>
+        </div>
+        
+        <!--Blog-->
+
+        <div id="blog-content">
+            <p>blog@me:~$ echo $BLOG</p>
+            {% for post in site.categories.blogs %}
+                <li><a href="{{ post.url }}">{{ post.title }}</a>
+                </li>
+            {% endfor %}
+            <br>
+            blog@me:~$&nbsp<span class="cursor">&#9608</span>
+            </ul>
+        </div>
+
+        <!--Codes -->
+        
+        <div id="code-content">
+            <p>code@me:~$ echo $CODE</p>
+            {% for post in site.categories.codes %}
+                <li><a href="{{ post.url }}">{{ post.title }}</a>
+                </li>
+            {% endfor %}
+            <br>
+            blog@me:~$&nbsp<span class="cursor">&#9608</span>
+            </ul>
+        </div>
+    </div>
+    <script src="{{ base.url | prepend: site.url }}/assets/js/script.js"></script>
+    <script src="{{ base.url | prepend: site.url }}/assets/js/winbox.bundle.js"></script>
+</body>
+</html>

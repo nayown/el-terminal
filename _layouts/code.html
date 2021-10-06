@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{"/assets/css/code.css" | relative_url}}">
+    <link rel="shortcut icon" type="image/png" href="/favicon.png">
+    <title>{{ page.title }}</title>
+</head>
+    <div class="container">
+        <nav class="nav">
+            <ul>
+                <li id="code">
+                    morecode
+                </li>
+                {% include navigation.html %}
+            </ul>
+        </nav>
+        <br>
+        <div class="content">
+            {{content}}
+        </div>
+        <br>
+        
+    </div>  
+    <div class="hidden">
+        <div id="code-content">
+            <p>code@me:~$ echo $CODE</p>
+            {% for post in site.categories.codes %}
+                <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+            {% endfor %}
+            <br>
+            <p>blog@me:~$ <span class="cursor">&#9608</span></p>
+            </ul>
+        </div>
+    </div>
+<script src="{{ base.url | prepend: site.url }}/assets/js/code.js"></script>
+<script src="{{ base.url | prepend: site.url }}/assets/js/winbox.bundle.js"></script>
+</html>

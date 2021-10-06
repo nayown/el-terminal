@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{"/assets/css/blog.css" | relative_url}}">
+    <link rel="shortcut icon" type="image/png" href="/favicon.png">
+    <title>{{ page.title }}</title>
+</head>
+    <div class="container">
+        <div class="nav">
+            <nav>
+                <ul>
+                    <li id="inside">moreblog</li>
+                    <li>{% include navigation.html %}</li>
+                </ul>
+            </nav>
+        </div>
+        <br>
+        {{content}}
+        <br>
+    </div> 
+
+    <div class="hidden">
+        <div id="inside-content">
+            <p>blog@me:~$ echo $BLOG</p>
+            {% for post in site.categories.blogs %}
+                <li><a href="{{ post.url }}">{{ post.title }}</a>
+                </li>
+            {% endfor %}
+            <br>
+            blog@me:~$ <span class="cursor">&#9608</span>
+            </ul>
+        </div>
+    </div>
+    <script src="{{ base.url | prepend: site.url }}/assets/js/blog.js"></script>
+    <script src="{{ base.url | prepend: site.url }}/assets/js/winbox.bundle.js"></script>
+</body>
+</html>
